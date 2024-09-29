@@ -1,0 +1,50 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+      POSTGRES_DB: airflow
+    volumes:
+      - ./db_data:/var/lib/postgresql/data
+
+  webserver:
+    image: my_airflow_image  # Use the custom image
+    environment:
+      AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
+      AIRFLOW__CORE__EXECUTOR: 'LocalExecutor'
+      AIRFLOW__CORE__SQL_ALCHEMY_CONN: 'postgresql+psycopg2://airflow:airflow@postgres/airflow'
+      AIRFLOW__CORE__FERNET_KEY: 'bgm8Y362txbVoWdSlOIkjPaWOQZlx5NBXUdw5Oz8bWs='  # Generate your Fernet key if you don't have one using python -c "from cryptography.fernet import Fernet; print(Fernet.generate_key().decode())"
+      AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'false'
+      AIRFLOW__WEBSERVER__AUTHENTICATE: 'false'
+      GOOGLE_APPLICATION_CREDENTIALS: '/opt/airflow/keys/the-axiom-436718-r3-1a4b07c8450a.json.json'
+
+      
+    volumes:
+      - ./airflow/dags:/opt/airflow/dags
+      - ./airflow/logs:/opt/airflow/logs        
+      - ./airflow/plugins:/opt/airflow/plugins 
+      #- ./airflow/config/airflow.cfg:/opt/airflow/airflow.cfg  
+      - ./airflow/keys:/opt/airflow/keys 
+      - ./airflow/$AIRFLOW_HOM/webserver_config.py:/opt/airflow/webserver_config.py
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    command: webserver
+  scheduler:
+    image: my_airflow_image
+    environment:
+      AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
+      AIRFLOW__CORE__EXECUTOR: 'LocalExecutor'
+      AIRFLOW__CORE__SQL_ALCHEMY_CONN: 'postgresql+psycopg2://airflow:airflow@postgres/airflow'
+      AIRFLOW__CORE__FERNET_KEY: 'bgm8Y362txbVoWdSlOIkjPaWOQZlx5NBXUdw5Oz8bWs='
+    volumes:
+      - ./airflow/dags:/opt/airflow/dags
+      - ./airflow/logs:/opt/airflow/logs        
+      - ./airflow/plugins:/opt/airflow/plugins 
+      - ./airflow/keys:/opt/airflow/keys  
+    depends_on:
+      - postgres
+    command: scheduler
