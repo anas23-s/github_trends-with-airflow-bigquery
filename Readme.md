@@ -32,21 +32,21 @@ To run this project, you will need the following:
 2. **Set up the environment**
    **Google Cloud Service Key**:
    Go to the console:
-   ![Create the service account step 1](.\img\service_account.png)
-   ![Create the service account step 2](.\img\service_account2.png)
-   ![Create the service account step 3](.\img\service_account3.png)
-   ![Create the service account step 4](.\img\service_account4.png)
-   ![Create the service account step 5](.\img\service_account5.png)
-   ![Create the service account step 6](.\img\service_account6.png)
+   ![Create the service account step 1](img/service_account.png)
+   ![Create the service account step 2](img/service_account2.png)
+   ![Create the service account step 3](img/service_account3.png)
+   ![Create the service account step 4](img/service_account4.png)
+   ![Create the service account step 5](img/service_account5.png)
+   ![Create the service account step 6](img/service_account6.png)
    Add your **Google Cloud JSON key file** to the ./keys directory.
    **airflow Connection:**
 After having the GCP key, you need to create a connection in Admin -> Connections using your key.
 
 In Airflow you need to define the google_cloud_default named connection to your project:
-   ![airflow_connection](.\img\airflow_connection.png)
+   ![airflow_connection](img/airflow_connection.png)
    **Enter the config variables**
    After connection has been set up, you can go to the bigquery_github_trends DAG, and enter the value of config variables in Admin -> Connections :
-   ![airflow_variable](.\img\airflow_variable.png)
+   ![airflow_variable](img/airflow_variable.png)
   - **BQ_PROJECT:** the bigquery project you are working on
   -**BQ_DATASET:** the bigquery dataset you are working on
 
