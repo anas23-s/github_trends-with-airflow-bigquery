@@ -1,6 +1,6 @@
 # GitHub Trends with Airflow and BigQuery
 ## Overview
-This project demonstrates a data pipeline that aggregates daily statistics about GitHub repositories. It pulls data from public datasets for Hacker News and GitHub, processes it, and pushes the aggregated results into a new joint table every day. 
+This project integrates **Apache Airflow** with **Google BigQuery** to automate the aggregation of daily statistics from GitHub repositories and **Hacker News**. The workflow runs on Airflow using a Dockerized environment and leverages BigQuery for data storage and analysis. 
 
 ## Important Information
 
