@@ -26,7 +26,7 @@ To run this project, you will need the following:
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/yourusername/airflow-bigquery-project.git
-   cd airflow-bigquery-project
+   cd airflow-bigquery-project .
    Run the Docker environment: docker-compose up
    Access Airflow UI: Once the services are up and running, access the Airflow UI at http://localhost:8080 to monitor and manage the DAGs.
 2. **Set up the environment**
