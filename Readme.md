@@ -26,30 +26,62 @@ To run this project, you will need the following:
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/yourusername/airflow-bigquery-project.git
-   cd airflow-bigquery-project .
-   Run the Docker environment: docker-compose up
-   Access Airflow UI: Once the services are up and running, access the Airflow UI at http://localhost:8080 to monitor and manage the DAGs.
+   cd airflow-bigquery-project 
+   # Run the Docker environment:
+   docker-compose up'''
+   ***Access Airflow UI:*** Once the services are up and running, access the Airflow UI at http://localhost:8080 to monitor and manage the DAGs.
 2. **Set up the environment**
-   **Google Cloud Service Key**:
-   Go to the console:
-   ![Create the service account step 1](img/service_account.png)
-   ![Create the service account step 2](img/service_account2.png)
-   ![Create the service account step 3](img/service_account3.png)
-   ![Create the service account step 4](img/service_account4.png)
-   ![Create the service account step 5](img/service_account5.png)
-   ![Create the service account step 6](img/service_account6.png)
-   Add your **Google Cloud JSON key file** to the ./keys directory.
-   **airflow Connection:**
-After having the GCP key, you need to create a connection in Admin -> Connections using your key.
+   
+## Steps to Create a Service Account and Download the Key
 
-In Airflow you need to define the google_cloud_default named connection to your project:
-   ![airflow_connection](img/airflow_connection.png)
-   **Enter the config variables**
-   After connection has been set up, you can go to the bigquery_github_trends DAG, and enter the value of config variables in Admin -> Connections :
-   ![airflow_variable](img/airflow_variable.png)
-  - **BQ_PROJECT:** the bigquery project you are working on
-  -**BQ_DATASET:** the bigquery dataset you are working on
+To create a service account in Google Cloud and download the JSON key, follow these steps:
 
+1. **Navigate to IAM & Admin**  
+   Go to the Google Cloud Console and navigate to **IAM & Admin**.  
+   ![Step 1: Open IAM & Admin in Google Cloud Console](img/service_account.png)
 
+2. **Access Service Accounts**  
+   In the sidebar, click on **Service Accounts**.  
+   ![Step 2: Access Service Accounts](img/service_account2.png)
+
+3. **Create a New Service Account**  
+   Click the **Create Service Account** button.  
+   ![Step 3: Create a New Service Account](img/service_account3.png)
+
+4. **Fill in Service Account Details**  
+   Enter the required details such as the **Service Account name**, **ID**, and **description**.  
+   ![Step 4: Fill in Service Account Details](img/service_account4.png)
+
+5. **Create a Key for the Service Account**  
+   Click on **Create Key**.  
+   ![Step 5: Create a Key for the Service Account](img/service_account5.png)
+
+6. **Download the JSON Key**  
+   Choose **JSON** as the key type and click **Create** to download the file.  
+   ![Step 6: Download the JSON Key](img/service_account6.png)
+
+### Instruction:
+Add your **Google Cloud JSON key file** to the `./keys` directory.
+
+---
+
+## Set up Airflow Connection and Variables
+
+1. **Create a Google Cloud Connection in Airflow**  
+   After obtaining the GCP key, you need to create a connection in **Admin** -> **Connections** using your key.
+
+   In Airflow, define a connection named `google_cloud_default` to link to your Google Cloud project:  
+   ![Create the Airflow connection](img/airflow_connection.png)
+
+2. **Configure Airflow Variables**  
+   After setting up the connection, navigate to the `bigquery_github_trends` DAG and enter the values for the configuration variables in **Admin** -> **Connections**:
+
+   ![Enter Airflow config variables](img/airflow_variable.png)
+
+   - **BQ_PROJECT**: The BigQuery project you're working on.
+   - **BQ_DATASET**: The BigQuery dataset you're using.
+
+### Instruction:
+Add your **Google Cloud JSON key file** to the `./keys` directory.
 
    
