@@ -90,13 +90,15 @@ To ensure your DAG is functioning as expected after setting up connections and c
 
 ```bash
 docker-compose exec webserver airflow tasks test [DAG_ID] [TASK_ID] [EXECUTION_DATE]
-'''markdown
+
+
 
 to initiate the test. Replace [DAG_ID], [TASK_ID], and [EXECUTION_DATE] with the relevant details of your workflow. For instance, you can test the task bq_check_hackernews_github_agg from the bgtest DAG for the date 2023-09-27 by running the command:
 
 '''bash
 docker-compose exec webserver airflow tasks test bigquery_github_trends bq_check_hackernews_github_agg 2023-09-27
-'''markdown
+
+
 
 
 This process is crucial for verifying the integrity of your data pipeline and ensuring smooth operations within your Airflow setup
