@@ -6,7 +6,7 @@ This project integrates **Apache Airflow** with **Google BigQuery** to automate 
 
 - **Project Source**: The code for this project is located in the **master branch**.
 
-To see the full project content, make sure to switch to the `master` branch using the following steps:
+To see the full project content, make sure to switch to the `master` branch .
 
    
 
