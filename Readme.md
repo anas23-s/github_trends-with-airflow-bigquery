@@ -1,6 +1,6 @@
 # GitHub Trends with Airflow and BigQuery
 ## Overview
-This project integrates **Apache Airflow** with **Google BigQuery** to automate the aggregation of daily statistics from GitHub repositories and **Hacker News**. The workflow runs on Airflow using a Dockerized environment and leverages BigQuery for data storage and analysis. 
+This project integrates **Apache Airflow** with **Google BigQuery** to automate the aggregation of **daily** statistics from GitHub repositories and **Hacker News**. The workflow runs on Airflow using a Dockerized environment and leverages BigQuery for data storage and analysis. 
 
 ## Important Information
 
@@ -8,10 +8,34 @@ This project integrates **Apache Airflow** with **Google BigQuery** to automate 
 - **Documentation**: Comprehensive documentation can be found in the **main branch**.
 ## Key Features
 
-- **Automated DAG** for aggregating daily GitHub repository and Hacker News statistics.
-- **Docker-based setup** for easy deployment of Airflow with BigQuery integration.
-- **Efficient data extraction** from GitHub and Hacker News.
-- **Reliable and scalable pipeline** using Airflow's LocalExecutor and PostgreSQL as the metadata database.
+## Key Steps
+
+### 1. Data Sources
+- **GitHub Archive**: Aggregates data from GitHub repositories.
+- **BigQuery Public Data (Hacker News)**: Aggregates activity data from Hacker News.
+
+### 2. Exploratory Data Analysis (EDA)
+- Conduct EDA to understand the data structure and content before setting up the pipeline.
+
+### 3. Data Transformation
+- Use SQL in BigQuery for data manipulation, aggregation, and transformation.
+
+### 4. Data Orchestration
+- Schedule and automate workflows using Apache Airflow, ensuring seamless execution of data pipeline tasks.
+
+### 5. Data Storage and Analysis
+- Store and process large datasets in Google BigQuery, serving as the central data warehouse.
+
+### 6. Containerization with Docker
+- Containerize the entire setup, including Apache Airflow, to facilitate easy deployment and scalability.
+
+### 7. Version Control and Deployment
+- Utilize Git for version control, ensuring reproducibility and efficient deployment of the data pipeline.
+
+## Project Architecture
+The project showcases a robust and scalable architecture where data flows from sources, is transformed using SQL in BigQuery, and is managed through Airflow workflows for automation and scheduling. By integrating Docker and Git, the project ensures easy reproducibility, version control, and efficient deployment.
+
+![Project Architecture](architecture.jpg)
 
 ## Prerequisites
 
@@ -28,8 +52,10 @@ To run this project, you will need the following:
    git clone https://github.com/yourusername/airflow-bigquery-project.git
    cd airflow-bigquery-project 
    # Run the Docker environment:
-   docker-compose up'''
-   ***Access Airflow UI:*** Once the services are up and running, access the Airflow UI at http://localhost:8080 to monitor and manage the DAGs.
+   docker-compose up
+
+   
+  # ***Access Airflow UI:*** Once the services are up and running, access the Airflow UI at http://localhost:8080 to monitor and manage the DAGs.
 2. **Set up the environment**
    
 ## Steps to Create a Service Account and Download the Key
