@@ -33,7 +33,7 @@ This project integrates **Apache Airflow** with **Google BigQuery** to automate 
 ## Project Architecture
 The project showcases a robust and scalable architecture where data flows from sources, is transformed using SQL in BigQuery, and is managed through Airflow workflows for automation and scheduling. By integrating Docker and Git, the project ensures easy reproducibility, version control, and efficient deployment.
 
-![Project Architecture](architecture.jpg)
+![Project Architecture](img/architecture.jpg)
 
 ## Prerequisites
 
