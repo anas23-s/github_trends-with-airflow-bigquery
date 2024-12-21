@@ -1,0 +1,14 @@
+# Ignore Airflow logs
+airflow/logs/
+
+# Ignore PostgreSQL data
+db_data/
+
+# Ignore Python bytecode and cache
+**/__pycache__/
+**/*.pyc
+
+# Ignore .ipynb_checkpoints for Jupyter notebooks (if applicable)
+**/.ipynb_checkpoints/
+#ignore webserver configurations
+airflow/webserver_config.py
